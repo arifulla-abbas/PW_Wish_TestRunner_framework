@@ -17,6 +17,7 @@ export class LeftHandNavigation {
      * To open PIM module by clicking on PIM link in left hand navigation
      */
     async clickPimLink() {
+        await this.pimLink.waitFor({ state: 'visible' });
         await this.pimLink.click();
     }
 
