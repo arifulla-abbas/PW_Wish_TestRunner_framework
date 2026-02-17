@@ -1,0 +1,5 @@
+{
+    "invalid_username": "invaliduser",
+    "invalid_password": "WrongPassword",
+    "invalid_credentials_text": "Invalid credentials"
+}
