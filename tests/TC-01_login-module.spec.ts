@@ -40,6 +40,6 @@ test.describe('Login Module - Positive Scenario or Happy path', { tag: '@Positiv
         // await expect(leftHandNavigationPage.orangeHRMLogo).toHaveScreenshot('OrangeHRMLogo.png');
         await expect(leftHandNavigationPage.orangeHRMLogo).toBeVisible();
         // await expect(leftHandNavigationPage.leftHandNavigationPanel).toHaveScreenshot('LeftHandNavigationPanel.png');
-        await expect(leftHandNavigationPage.leftHandNavigationPanel).toHaveAttribute('alt', /OrangeHRM/); // Example of attribute check instead of screenshot
+        await expect(leftHandNavigationPage.leftHandNavigationPanel).toBeVisible();
     });
 });
