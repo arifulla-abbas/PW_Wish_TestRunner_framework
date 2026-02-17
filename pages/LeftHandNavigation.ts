@@ -8,7 +8,7 @@ export class LeftHandNavigation {
 
     constructor(page: Page) {
         this.page = page;
-        this.pimLink = this.page.getByRole('link', { name: 'PIM' });
+        this.pimLink = this.page.locator('span:has-text("PIM")');
         this.orangeHRMLogo = this.page.getByAltText('client brand banner').first();
         this.leftHandNavigationPanel = this.page.locator('div.oxd-sidepanel-body');
     }
