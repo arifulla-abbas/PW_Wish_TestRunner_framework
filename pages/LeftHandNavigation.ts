@@ -8,7 +8,7 @@ export class LeftHandNavigation {
 
     constructor(page: Page) {
         this.page = page;
-        this.pimLink = this.page.locator('span:has-text("PIM")');
+        this.pimLink = this.page.getByRole('menuitem', { name: 'PIM' });
         this.orangeHRMLogo = this.page.getByAltText('client brand banner').first();
         this.leftHandNavigationPanel = this.page.locator('div.oxd-sidepanel-body');
     }
@@ -17,8 +17,7 @@ export class LeftHandNavigation {
      * To open PIM module by clicking on PIM link in left hand navigation
      */
     async clickPimLink() {
-        await this.pimLink.waitFor({ state: 'visible' });
         await this.pimLink.click();
+        await this.page.waitForURL(/pim/);
     }
-
 }
