@@ -17,7 +17,16 @@ export class LeftHandNavigation {
      * To open PIM module by clicking on PIM link in left hand navigation
      */
     async clickPimLink() {
-        await this.pimLink.click();
-        await this.page.waitForURL(/pim/);
+        // Wait for dashboard load first
+        await this.page.waitForLoadState('networkidle');
+        await this.page.waitForSelector('[class*="oxd-main-menu"]', { state: 'visible', timeout: 20000 });
+
+        // Fallback locators: text first (most reliable for OrangeHRM)
+        const pimLink = this.page.getByText('PIM', { exact: true }).first();
+        await pimLink.waitFor({ state: 'visible', timeout: 15000 });
+        await pimLink.click();
+
+        await this.page.waitForURL(/pim/, { timeout: 10000 });
     }
+
 }
